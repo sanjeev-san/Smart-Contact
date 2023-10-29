@@ -36,10 +36,10 @@ public class EmailService {
       new Authenticator() {
         @Override
         protected PasswordAuthentication getPasswordAuthentication() {
-            //Edit password before login
+          //Edit password before login
           return new PasswordAuthentication(
             "md.shahidalam.cse24@heritageit.edu.in",
-            "***********"
+            "*****Password"
           );
         }
       }
@@ -52,6 +52,8 @@ public class EmailService {
       m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
       m.setSubject(subject);
       m.setText(message);
+      // for sending in html format
+      // m.setContent(message, "text/html");
       Transport.send(m);
       //   System.out.println("Sent Success");
       flag = true;
